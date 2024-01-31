@@ -1,0 +1,22 @@
+.Summary{
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.centerButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.Restaurant-Card{
+    width:100%;
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <mat-icon>restaurant_menu</mat-icon>
+        
+        <span>
+            <span class="spacerI"></span>
+            <a mat-raised-button class="logo" (click)="changePage()">FOOD CENTRAL</a>
+        </span>
+        <div class="spacer"></div>
+        
+        <div class="links">
+            <a mat-flat-button routerLink="/" color="primary" (click)="changePage()">Home</a>
+            <a mat-flat-button routerLink="/followed" color="primary">Followed</a>
+            <a mat-flat-button routerLink="/reviews" color="primary" [disabled]="!enableRevs || adminLogged">My Reviews</a>
+
+            <a mat-raised-button routerLink="/Sign-Up-Menu" color="accent" [disabled]="logged">Sign Up</a>
+            <a mat-raised-button routerLink="/Sign-In-Menu" color="accent" [disabled]="logged">Log In</a>
+            <a mat-raised-button (click)="signOut()" [disabled]="!logged" color="accent">Sign Out</a>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

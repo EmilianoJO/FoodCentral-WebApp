@@ -1,0 +1,28 @@
+<div class="SignUpBackground">
+    <div class="formContainer">
+        <form class="BusinesForm" [formGroup]="postForm" (submit)="postNewBusinessPost()">
+            <h1>Creemos tu nuevo negocio</h1>
+            <br>
+            <mat-form-field class="Full-width-field">
+            <mat-label>Encabezado de la publicación</mat-label>
+            <input type="text" matInput placeholder="Escribe el encabezado de tu publicación" formControlName="postTitle" [(ngModel)]="postTitle">
+            <mat-icon matSuffix>business_name</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="Full-width-field">
+                <mat-label>Contenido</mat-label>
+                <textarea matInput formControlName="postDescription" [(ngModel)]="postDescription"></textarea>
+            </mat-form-field>
+            <br>
+            <button mat-fab extended color="primary" type="submit" [disabled]="postForm.invalid"> 
+            <mat-icon>check</mat-icon>
+            Publicar
+            </button>
+
+            <button mat-fab extended color="danger" type="submit" routerLink="/Owner-View"> 
+                <mat-icon>cancel</mat-icon>
+                Cancelar
+                </button>
+        </form>
+    </div>
+</div>

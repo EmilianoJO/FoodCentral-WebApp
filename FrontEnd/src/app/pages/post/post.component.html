@@ -1,0 +1,52 @@
+<h1>Crea una publicación</h1>
+
+<div>
+    <mat-horizontal-stepper>
+        <mat-step label="Título publicación">
+            <form>
+                <mat-form-field>
+                  <mat-label>Añade un nombre</mat-label>
+                  <input matInput name="title" placeholder="Nombre de restaurante" [(ngModel)]="title">
+                </mat-form-field>
+            </form>
+            <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+        </mat-step>
+        <mat-step label="Imágenes">
+            <form>
+                <mat-form-field>
+                  <mat-label>+Añade una imagen</mat-label>
+                  <input matInput name="url" placeholder="+Añade una imagen" [(ngModel)]="url">
+                </mat-form-field>
+            </form>
+            <button mat-raised-button color="primary" matStepperPrevious>Atrás</button>
+            <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+        </mat-step>
+        <!-- <mat-step label="Dirección">
+            <form>
+                <mat-form-field>
+                  <mat-label>Añade una ubicación</mat-label>
+                  <input matInput placeholder="Dirección restaurante">
+                </mat-form-field>
+            </form>
+            <button mat-raised-button color="primary" matStepperPrevious>Atrás</button>
+            <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+        </mat-step> -->
+        <mat-step label="Descripción">
+            <form>
+                <mat-form-field>
+                  <mat-label>Añade una descripción</mat-label>
+                  <textarea matInput name="description" placeholder="Descripción restaurante" [(ngModel)]="description"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-raised-button color="primary" matStepperPrevious>Atrás</button>
+            <button mat-raised-button (click)="crear()" color="primary" matStepperNext>Terminar</button>
+        </mat-step>
+        <mat-step label="¡Listo!">
+            <h3>Tu publicación se ha realizado</h3>
+            <button mat-raised-button color="primary" matStepperPrevious>Atrás</button>
+            <button mat-raised-button color="primary"><a href="/">Regresar a Inicio</a></button>
+            
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>
+

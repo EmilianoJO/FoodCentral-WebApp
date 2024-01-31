@@ -1,0 +1,48 @@
+<div class="Summary">
+   <div class="mainCardSample">
+    <mat-card class="sampleCard">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Tu nuevo negocio comienza aquí</mat-card-title>
+          
+          <mat-card-subtitle>Solo tienes que llenar unos datos simples</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <button class="centerButton" mat-raised-button color="primary" aria-label="Agrega un negocio" [routerLink]="['/Business-Form']">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-card-content>
+      </mat-card>
+
+      <div>
+        <mat-card class="Restaurant-Card" *ngFor="let business of businesses">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{business.name}}</mat-card-title>
+            <mat-card-subtitle>{{business.address}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-lg-image src="https://business-pictures-bucket.s3.amazonaws.com/{{business._id}}.{{business.mediaPieceFormat}}" alt="Photo of a restaurant">
+          <mat-card-content>
+            <p>
+              {{business.description}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary" (click)="editBusiness(business._id)">EDITAR</button>
+            <button mat-button color="success" (click)="seeComments(business._id)">VE LOS COMENTARIOS</button>
+            <button mat-button color="accent" (click)="deleteBusiness(business._id)">BORRAR</button>
+          </mat-card-actions>
+          <br>
+            <button class="centerButton" mat-raised-button color="primary" aria-label="Agrega un negocio" (click)="goToCommentsPage(business._id)">
+              <mat-icon>add</mat-icon>
+              Nueva publicación
+            </button>
+        </mat-card>
+      </div>
+   </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>

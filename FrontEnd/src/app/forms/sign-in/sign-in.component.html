@@ -1,0 +1,27 @@
+<div class="SigInpBackground">
+    <div class="SignIn">
+        <form class="SignInForm" [formGroup]="SignInForm" (submit)="logIn()">
+            <h1>Iniciemos sesión</h1>
+            <br>
+            <mat-form-field class="Full-width-field">
+            <mat-label>Correo Electrónico</mat-label>
+            <input type="email" matInput placeholder="Usa un correo válido" formControlName="email" [(ngModel)]="email">
+            <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="Full-width-field">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput placeholder="Escribe una contraseña segura" formControlName="password" [(ngModel)]="password">
+            <mat-icon matSuffix>verified_user</mat-icon>
+            </mat-form-field>
+            <br>
+            <button mat-fab extended color="primary" type="submit"  [disabled]="SignInForm.invalid">
+            <mat-icon>check</mat-icon>
+            ¡Inicia sesión!
+            </button>
+            <br>
+            O inicia con Google
+            <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+        </form>
+    </div>
+</div>

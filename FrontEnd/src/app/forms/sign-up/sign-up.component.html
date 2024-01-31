@@ -1,0 +1,40 @@
+<div class="SignUpBackground">
+    <div class="SignUp">
+        <form class="SignUpForm" [formGroup]="SignUpForm" (submit)="postNewUser()">
+            <h1>Crea tu cuenta</h1>
+            <br>
+            <mat-form-field class="Full-width-field">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput placeholder="Escribe tu nombre" formControlName="name" [(ngModel)]="name">
+            <mat-icon matSuffix>how_to_reg</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="Full-width-field">
+            <mat-label>Correo Electrónico</mat-label>
+            <input type="email" matInput placeholder="Usa un correo válido" formControlName="email" [(ngModel)]="email">
+            <mat-icon matSuffix>alternate_email</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="Full-width-field">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput placeholder="Escribe una contraseña segura" formControlName="password" [(ngModel)]="password">
+            <mat-icon matSuffix>verified_user</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="Full-width-field">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input type="password" matInput placeholder="Escribe una contraseña segura" formControlName="confirmPassword">
+            <mat-icon matSuffix>verified_user</mat-icon>
+            </mat-form-field>
+
+            <mat-checkbox class="example-margin" (change)="isOwnerChanged()">Voy a ser un administrador de negocios</mat-checkbox>
+
+            <mat-checkbox class="example-margin" formControlName="check">Acepto los términos y condicones</mat-checkbox>
+            <br>
+            <button mat-fab extended color="primary" type="submit" [disabled]="SignUpForm.invalid">
+            <mat-icon>check</mat-icon>
+            ¡Regísitrate!
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<body>
+  <script src="home.component.ts"></script>
+  <form (submit)="filtrar()" id="home_form">
+    <mat-form-field id="home_form_input">
+        <mat-label>Buscar</mat-label>
+        <input matInput name="buscar" type="text" placeholder="Buscar..." [(ngModel)]="buscar">
+        <mat-error>Es requerido</mat-error>
+    </mat-form-field>
+    <button id="home_form_button" mat-fab color="primary"><mat-icon>search</mat-icon></button>
+  </form>
+  <br><br><br>
+
+  
+    <div *ngFor="let item of negociosFiltrados">
+      <mat-card class="card-post">
+        <mat-card-header>
+          <mat-card-title>{{item.name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://business-pictures-bucket.s3.amazonaws.com/{{item._id}}.{{item.mediaPieceFormat}}">
+          <mat-card-content>
+          <br>
+          <p>
+            {{item.description}}
+        </p>
+        <br>
+        <p>
+            Dirección: {{item.address}}
+        </p>
+        <br>
+        <p>
+            Calificación: {{item.averageNote}}
+        </p>
+        <br>
+        <p>
+            Abre: {{item.openTime}}   Cierra: {{item.closeTime}}
+        </p>
+          </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="follow(item)" color="primary"><mat-icon>star</mat-icon><p>Seguir</p></button>
+          <button mat-raised-button color="primary" (click)="addCommentDialog(item._id,item.name,item.address,item.id_user)">¡Añadir Comentario!</button>
+          
+        </mat-card-actions>
+          
+      </mat-card>
+      <br><br>     
+    </div>
+  
+
+</body>

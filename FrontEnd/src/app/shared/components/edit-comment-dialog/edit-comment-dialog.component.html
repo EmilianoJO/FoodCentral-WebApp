@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Edit Comment</h1>
+<form (ngSubmit)="onSaveClick()">
+<div mat-dialog-content>
+
+  <p style="font-weight: 900;">Current comment:</p>
+    <p>{{data.comment}}</p>
+    <hr>
+    <label>Write your new comment...</label>
+    <input matInput type="text" class="form-control" placeholder="New Comment" name="newComment" [(ngModel)]="newComment">
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCloseClick()" type="reset">Cancel</button>
+  <button mat-button cdkFocusInitial type="submit">Save</button>
+</div>
+</form>

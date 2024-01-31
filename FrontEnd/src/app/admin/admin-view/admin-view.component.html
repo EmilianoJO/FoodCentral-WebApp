@@ -1,0 +1,64 @@
+<div class="content">
+  <div class="ultraTitle">
+  <p class="coTitle">Adminitración de Usuarios y Negocios</p>
+  <hr>
+</div>
+  <div class="usuarios">
+    <p class="title">Usuarios:</p>
+    <hr>
+    <div class="list" *ngFor="let item of usuarios">
+        <div class="data">
+            <p class="dataText">Nombre de Usuario: {{item.bName}}</p>
+            <p class="dataText">Email: {{item.email}}</p>
+            <p class="dataText">Tipo de Usuario: {{item.userType}}</p>
+            <p class="dataText">Sus negocios:</p>
+            <div *ngFor="let elem of item.negocios">{{elem}}</div>
+            <p></p>
+            <p class="dataText">Fecha de creacion: {{item.fechaCreacion}}</p>
+            <div class="settingsButton">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="buttonMenu" class="menuReviews">
+                <mat-icon>more_horiz</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                               
+                <button mat-menu-item (click)="deleteDialogUser(item._id,item.bName)">
+                    <!--(click)="deleteDialog()"-->
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+                </mat-menu>
+          </div>
+        </div>
+
+      
+    </div>
+  </div>
+  <hr>
+  <div class="negocios">
+    <p class="title">Negocios:</p>
+    <hr>
+    <div class="list" *ngFor="let item of negocios">
+        <div class="data">
+            <p class="dataText">Nombre de Negocio: {{item.name}}</p>
+            <p class="dataText">Dirección: {{item.address}}</p>
+            <p class="dataText">Descripción: {{item.description}}</p>
+            <p class="dataText">Horario entrada:{{item.openTime}}</p>
+            <p class="dataText">Horario entrada:{{item.closeTime}}</p>
+            
+            <p class="dataText">Fecha de creacion: {{item.fechaCreacion}}</p>
+            <div class="settingsButton">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="buttonMenu" class="menuReviews">
+                <mat-icon>more_horiz</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                               
+                <button mat-menu-item (click)="deleteDialogBusiness(item._id,item.name)">
+                    <!--(click)="deleteDialog()"-->
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+                </mat-menu>
+          </div>
+        </div>
+  </div>
+</div>

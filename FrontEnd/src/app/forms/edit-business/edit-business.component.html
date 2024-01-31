@@ -1,0 +1,122 @@
+<div class="SignUpBackground">
+    <div class="formContainer">
+        <form class="BusinesForm" [formGroup]="BusinessForm" (submit)="editCurrentBusiness()">
+            <h1>Cambiemos los datos de tu negocio</h1>
+            <br>
+            <mat-form-field class="Full-width-field">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput placeholder="Escribe el nombre de tu negocio" formControlName="businessName" [(ngModel)]="businessName">
+            <mat-icon matSuffix>business_name</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="Full-width-field">
+            <mat-label>Dirección del negocio</mat-label>
+            <input type="text" matInput placeholder="Escribe la dirección de tu negocio" formControlName="businessAddress" [(ngModel)]="businessAddress">
+            <mat-icon matSuffix>business_address</mat-icon>
+            </mat-form-field>
+            <mat-form-field class="Full-width-field">
+                <mat-label>Descripción del negocio</mat-label>
+                <textarea matInput placeholder="Describe tu negocio en pocas palabras" formControlName="businessDescription" [(ngModel)]="businessDescription"></textarea>
+            </mat-form-field>
+            <br>
+            <table class="Full-width-field" cellspacing="0"><tr>
+                <td><mat-form-field class="Full-width-field">
+                    <mat-label>Horario de apertura (horas)</mat-label>
+                    <mat-select formControlName="businessOpenHour" [(ngModel)]="businessOpenHour">
+                        <mat-option value="01">01</mat-option>
+                        <mat-option value="02">02</mat-option>
+                        <mat-option value="03">03</mat-option>
+                        <mat-option value="04">04</mat-option>
+                        <mat-option value="05">05</mat-option>
+                        <mat-option value="06">06</mat-option>
+                        <mat-option value="07">07</mat-option>
+                        <mat-option value="08">08</mat-option>
+                        <mat-option value="09">09</mat-option>
+                        <mat-option value="10">10</mat-option>
+                        <mat-option value="11">11</mat-option>
+                        <mat-option value="12">12</mat-option>
+                    </mat-select>
+                </mat-form-field></td>
+                <td><mat-form-field class="Full-width-field">
+                    <mat-label>Horario de apertura (minutos)</mat-label>
+                    <mat-select formControlName="businessOpenMinutes" [(ngModel)]="businessOpenMinutes">
+                        <mat-option value="00">00</mat-option>
+                        <mat-option value="05">05</mat-option>
+                        <mat-option value="10">10</mat-option>
+                        <mat-option value="15">15</mat-option>
+                        <mat-option value="20">20</mat-option>
+                        <mat-option value="25">25</mat-option>
+                        <mat-option value="30">30</mat-option>
+                        <mat-option value="35">35</mat-option>
+                        <mat-option value="40">40</mat-option>
+                        <mat-option value="45">45</mat-option>
+                        <mat-option value="50">50</mat-option>
+                        <mat-option value="55">55</mat-option>
+                    </mat-select>
+                </mat-form-field></td>
+                <td><mat-form-field class="Full-width-field">
+                    <mat-select formControlName="businessOpenTemp" [(ngModel)]="businessOpenTemp">
+                        <mat-option value="AM">AM</mat-option>
+                        <mat-option value="PM">PM</mat-option>
+                    </mat-select>
+                </mat-form-field></td>
+            </tr></table>
+            <br>
+            <table class="Full-width-field" cellspacing="0"><tr>
+                <td><mat-form-field class="Full-width-field">
+                    <mat-label>Horario de cierre (horas)</mat-label>
+                    <mat-select formControlName="businessCloseHour" [(ngModel)]="businessCloseHour">
+                        <mat-option value="01">01</mat-option>
+                        <mat-option value="02">02</mat-option>
+                        <mat-option value="03">03</mat-option>
+                        <mat-option value="04">04</mat-option>
+                        <mat-option value="05">05</mat-option>
+                        <mat-option value="06">06</mat-option>
+                        <mat-option value="07">07</mat-option>
+                        <mat-option value="08">08</mat-option>
+                        <mat-option value="09">09</mat-option>
+                        <mat-option value="10">10</mat-option>
+                        <mat-option value="11">11</mat-option>
+                        <mat-option value="12">12</mat-option>
+                    </mat-select>
+                    <mat-hint align="end"></mat-hint>
+                </mat-form-field></td>
+                <td><mat-form-field class="Full-width-field">
+                    <mat-label>Horario de cierre (minutos)</mat-label>
+                    <mat-select formControlName="businessCloseMinutes" [(ngModel)]="businessCloseMinutes">
+                        <mat-option value="00">00</mat-option>
+                        <mat-option value="05">05</mat-option>
+                        <mat-option value="10">10</mat-option>
+                        <mat-option value="15">15</mat-option>
+                        <mat-option value="20">20</mat-option>
+                        <mat-option value="25">25</mat-option>
+                        <mat-option value="30">30</mat-option>
+                        <mat-option value="35">35</mat-option>
+                        <mat-option value="40">40</mat-option>
+                        <mat-option value="45">45</mat-option>
+                        <mat-option value="50">50</mat-option>
+                        <mat-option value="55">55</mat-option>
+                    </mat-select>
+                </mat-form-field></td>
+                <td><mat-form-field class="Full-width-field">
+                    <mat-select formControlName="businessCloseTemp" [(ngModel)]="businessCloseTemp">
+                        <mat-option value="AM">AM</mat-option>
+                        <mat-option value="PM">PM</mat-option>
+                    </mat-select>
+                </mat-form-field></td>
+            </tr></table>
+            <input type="file" class="file-upload" (change)="onFileSelected($event)">
+            <br>
+            <br>
+            <button mat-fab extended color="primary" type="submit" [disabled]="BusinessForm.invalid" (click)="editCurrentBusiness()"> 
+            <mat-icon>check</mat-icon>
+            Confirmar cambios
+            </button>
+
+            <button mat-fab extended color="danger" type="submit" (click)="goBack()">
+                <mat-icon>cancel</mat-icon>
+                Cancela el registro
+            </button>
+        </form>
+    </div>
+</div>

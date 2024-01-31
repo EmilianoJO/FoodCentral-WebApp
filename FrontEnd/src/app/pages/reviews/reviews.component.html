@@ -1,0 +1,64 @@
+<div class="content">
+  <div class="title">
+    <p>My Reviews</p>
+  </div>
+  <hr>
+  <div class="data">
+    <p class="noComment" *ngIf="flagComentario">Todavía no tienes un comentario, crea uno nuevo!</p>
+    <div class="comment" *ngFor="let item of reviews;  let i = index;">
+      
+
+      <div class="commentText" >
+        <div *ngFor="let element of item.negocioId">
+        <p class="coTitle"><mat-icon>storefront</mat-icon><span>{{element.name}}</span></p>
+        <!--item.negocioId[0].name-->
+        </div>
+        <div *ngFor="let element of item.userId">
+        <p class="coTitle"><mat-icon>account_circle</mat-icon><span>{{element.bName}}</span></p>
+        <!--item.userId[0].bName-->
+        </div>
+        
+        <p class="fecha"><mat-icon>schedule</mat-icon><span>{{item.fechaCreacion}}</span></p>
+
+      </div>
+      <div class="commentS">
+        <p class="coTitle">Comentario: </p>
+        
+        <p>{{item.comment}}</p>
+        <hr>
+        <p class="coTitle">Respuesta de Negocio: </p>
+        <p>{{item.response}}</p>
+      </div>
+
+
+      <div class="settingsButton">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="buttonMenu" class="menuReviews">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <a href="https://twitter.com/compose/tweet" target="_blank">
+          <button mat-menu-item>
+            <mat-icon>ios_share</mat-icon>
+            <span>Share</span>
+          </button></a>
+          <button mat-menu-item (click)="editDialog(item._id,item.userId,item.negocioId,item.comment)">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item (click)="deleteDialog(item._id,item.userId,item.negocioId,item.comment)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+  </div>
+</div>

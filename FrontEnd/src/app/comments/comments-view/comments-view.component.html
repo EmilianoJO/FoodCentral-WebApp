@@ -1,0 +1,23 @@
+<div class="cardContainers">
+    <button mat-fab extended color="danger" type="submit" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Volver a tus negocios
+    </button>
+    <mat-card class="example-card" *ngFor="let comment of comments">
+        <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{comment.userId.bName}}</mat-card-title>
+        <mat-card-subtitle>{{comment.comment}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+        <br>
+        <p>
+            {{comment.response}}
+        </p>
+        </mat-card-content>
+        <br>
+        <mat-card-actions>
+        <button mat-button style="width: 100%;" (click)="openConfirmDialog(comment._id, comment.response)">EDITAR/SUBIR RESPUESTA</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

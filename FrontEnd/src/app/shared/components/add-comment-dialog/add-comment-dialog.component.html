@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Add your Comment</h1>
+<form (ngSubmit)="onSaveClick()">
+<div mat-dialog-content>
+
+  <p style="font-weight: 900;">Business that will recieve your comment:</p>
+    <p style="font-weight: 700;">Business:</p><p>{{data.name}}</p>
+    <p style="font-weight: 700;">Address:</p><p>{{data.address}}</p>
+    <hr>
+    <label>Write your new comment...</label>
+    <input matInput type="text" class="form-control" placeholder="New Comment" name="newComment" [(ngModel)]="newComment">
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCloseClick()" type="reset">Cancel</button>
+  <button mat-button cdkFocusInitial type="submit">Save</button>
+</div>
+</form>
